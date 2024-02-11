@@ -1,0 +1,60 @@
+<!--  all issues of a specific project will shown by this file -->
+  <% if(issues.length==0){ %>
+
+   
+
+    <a href="/api/issues/raiseIssuePage/<%=projectId%>" style="position: sticky; top:12%; margin-left: 85%; color:rgb(51, 1, 252); background-color: yellow; ;" class="text-center p-2"  >Add your opinion/issue</a>
+
+    <h3 style="margin-top: 15%; margin-left:37%"> There is not any raised Issue </h3>
+  <% }else{ %>
+
+    <a href="/api/issues/raiseIssuePage/<%=projectId%>" style="position: sticky; top:12%; margin-left: 85%; color:rgb(51, 1, 252); background-color: yellow; ;" class="text-center p-2"  >Add your opinion/issue</a>
+
+
+
+      
+      
+      <div class="btn-group dropend">
+        <button type="button " class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Filter by
+        </button>
+        <ul class="dropdown-menu">
+          
+          <form action="/api/issues/filter/<%=projectId%>" method="post">
+          <li><input class="form-check-input" type='checkbox' name="improvements"  value="Improvements">Improvements</li>
+          <li><input class="form-check-input" type='checkbox' name="bugs"  value="Bugs"> BUG</li>
+          <li><input class="form-check-input" type='checkbox' name="api"  value="API">API</li>
+          <li><input class="form-check-input" type='checkbox' name="database"  value="Database">Database</li>
+          <li><input class="form-check-input" type='checkbox' name="error"  value="Error">Error</input></li>
+          <li><button type=submit class="btn btn-warning btn-sm " >Filter</button></li>
+        </form>
+        </ul>
+      </div>  
+      
+      <% issues.forEach(issue =>{ %>
+
+
+        <div class='container ms-n1  mt-5  border border-5 p-4' style="background-color: rgb(216, 172, 255);">
+          <div style="margin-left:80% ; color:aquamarine; background-color:rgb(241, 146, 30) ; " class="text-center border rounded"><%=issue.projectLabel%></div>
+            <div id="title" class="border border-3 p-2 m-3 rounded " style="background-color: blanchedalmond;">
+              <%=issue.title %>
+              
+         </div>
+
+            
+            <div id="description" class="ms-5" style=" word-wrap: break-word; width:70%" >
+              <%=issue.description %>
+            </div>
+
+
+            <div id="author" class="mt-5 border border-1 rounded text-center "  style="margin-left:70%; background-color: rgb(103, 186, 250);">
+              Author:&nbsp; &nbsp; <%= issue.author %>
+            </div>
+
+
+          </div>
+
+       <% }) %>
+
+  <% } %>
+    

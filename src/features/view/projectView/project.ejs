@@ -1,0 +1,50 @@
+
+<body style="background-color:rgb(199, 217, 245)">
+
+  <a href="/api/projects" style="position:fixed; top:12%; left:1%;background-color: aqua; padding: 0.5%;  " class="rounded btn"> <i class="fa-solid fa-plus " ></i>Add your Project</a>
+
+  <!-- if there is not any project added to evaluate -->
+  <% if(projects.length==0){ %>
+
+    <h4 style="position: relative; top:200px; left:500px"> Search is not found</h4>
+
+    <% }else{ %>
+
+<!-- for rendering each project -->
+<% projects.forEach(project=>{ %>
+  <a href="/api/issues/<%=project._id %> " style="text-decoration-line: none; color:black" >
+  
+  <div style="flex-wrap:wrap; margin: 5%; padding:1%; border:10px solid burlywood; background-color: silver; " >
+    
+    <image width='300px' src="/images/Project-Management-Statistics.webp"></image>
+    
+    <div style="display:inline-block;" >
+      <div style="list-style: none; position: relative; left:250px ;  ">
+        
+          <h3><%=project.projectName%></h3>
+        
+      </div>
+      </div>
+      <div style="position: relative; left:30% ;  bottom:50px ; word-wrap: break-word; width:70%">
+        <!-- <a href= "/api/issues/<%=project._id %>" style="margin-left:420px">Is there any issue with this project/raised issues ?</a> -->
+
+        <h5>Description : <span style=" font-size:16px;font-weight: 500;"> <%= project.description %></project.description></span> </h5>
+        <h6 >Author &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  :  <%= project.author %></h6> 
+
+      </div>
+   
+  </div>
+
+</a>
+
+
+
+<% }) %>
+
+<% }  %>
+
+</body>
+      
+ 
+      
+    

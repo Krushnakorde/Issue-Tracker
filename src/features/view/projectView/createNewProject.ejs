@@ -1,0 +1,43 @@
+
+
+<!-- for adding project this page will render -->
+      <body class="bg-info-subtle ">
+      
+        <div class="container  ">
+
+            <% if(msg){  %>
+                <h3 style="margin-left: 20%;margin-top: 1%;">
+                    <%=msg%>
+                </h3>
+                
+            <% } %>
+
+                <!-- for form section -->
+        
+            <form action="/api/projects/createProject" method ='POST'>
+
+            <div style= "margin-top: 3%;" class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label fs-4">Project- Name</label>
+                <input type="text" name="projectName" class="form-control" id="exampleFormControlInput1" placeholder=" Project">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label fs-4">Project- Description</label>
+                <textarea class="form-control" type = "text" name ="description" id="exampleFormControlTextarea1" rows="3" placeholder="write about project"></textarea>
+            </div>
+            
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label fs-4">Author- Name</label>
+                <input type="text"  name ='author' class="form-control" id="exampleFormControlInput1" placeholder="abc">
+            </div>
+
+            <button type="submit"  class="btn btn-light position-absolute  end-50 ">Submit</button>
+
+            </form>
+        </div>
+
+    </body>
+      
+
+      
+    

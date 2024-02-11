@@ -1,0 +1,43 @@
+<!--  for raising issue this on specific project this page will render -->
+
+<body style="background-color: rgba(199, 196, 249, 0.548);">
+    <div class="container z-0 position-absolute  rounded-3 " style="padding:7%; padding-left: 10%;">
+        <% if(msg){ %>
+            <h5 class="bg-success rounded p-2" style="position:absolute;top:6% ; left:40%"  >  <%= msg %></h5>
+        <% } %>
+
+        <!--  for getting users issue on specific label -->
+        <form action="/api/issues/<%=projectId %>" method="post">
+            <div class="mb-3">
+                <label for="title">Title</label>
+                <input class="form-control" id="title" name="title" type="text" required>    
+            </div>
+
+            <div class="mb-3">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description" type="text" required></textarea>
+            </div>
+
+            <div class="col-md-4 " >
+                <label for="inputState" class="form-label">Label</label>
+                <select name="projectLabel" id="inputState" class="form-select" required>
+                <option selected>Improvements</option>
+                <option>Bugs</option>
+                <option>API</option>
+                <option>Database</option>
+                <option>Error</option>
+                </select>
+            </div>
+
+            <div style="margin-top: 20px; margin-bottom: 20px ;">
+                <label for ="author">Author</label>
+                <input class="form-control" id="author" name="author" required ></input>
+            </div>
+
+            <button type="submit" class="btn btn-info " style="margin-left: 50%;">submit</button>
+            
+
+
+        </form>
+    </div>
+<body>
