@@ -12,7 +12,7 @@ export const ConnectToMongoDB =()=>{
 
     try{
 
-        MongoClient.connect(process.env.DB_URL).then(clientInstance =>{
+        MongoClient.connect(process.env.DBURL || process.env.DB_URL).then(clientInstance =>{
             client= clientInstance;
         })
 
